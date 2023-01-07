@@ -17,8 +17,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String content;
     private Long cookTime;
+    private String author;
+    private String content;
 
     @Builder
     public Post(String title, String content, Long cookTime) {

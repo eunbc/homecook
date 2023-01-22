@@ -34,7 +34,6 @@ class PostRepositoryTest {
         postRepository.save(Post.builder()
                 .title(title)
                 .content(content)
-                .cookTime(100L)
                 .build());
 
         //when

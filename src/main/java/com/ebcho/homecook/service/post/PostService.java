@@ -4,6 +4,7 @@ import com.ebcho.homecook.domain.post.Post;
 import com.ebcho.homecook.domain.post.PostRepository;
 import com.ebcho.homecook.web.dto.PostListResponseDto;
 import com.ebcho.homecook.web.dto.PostResponseDto;
+import com.ebcho.homecook.web.dto.PostSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,9 @@ public class PostService {
     public PostResponseDto findById(Long id) {
         Post entity = postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("This post does not exist. id : "+id));
         return new PostResponseDto(entity);
+    }
+
+    public Long save(PostSaveRequestDto requestDto) {
+        return postRepository.save(requestDto.toEntity()).getId();
     }
 }

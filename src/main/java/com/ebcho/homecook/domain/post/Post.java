@@ -17,15 +17,14 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private Long cookTime;
     private String author;
     private String content;
 
     @Builder
-    public Post(String title, String content, Long cookTime) {
+    public Post(String title,String author,String content) {
         this.title = title;
+        this.author = author;
         this.content = content;
-        this.cookTime = cookTime;
     }
 
 }

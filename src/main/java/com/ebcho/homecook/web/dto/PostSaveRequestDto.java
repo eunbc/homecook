@@ -10,6 +10,8 @@ public class PostSaveRequestDto {
 
     public PostSaveRequestDto(String title,String author ,String content) {
         this.title = title;
+        this.author = author;
+        this.content = content;
     }
 
     public Post toEntity() {

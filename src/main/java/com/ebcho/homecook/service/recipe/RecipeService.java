@@ -1,12 +1,16 @@
 package com.ebcho.homecook.service.recipe;
 
+import com.ebcho.homecook.domain.recipe.Recipe;
 import com.ebcho.homecook.domain.recipe.RecipeRepository;
-import com.ebcho.homecook.web.dto.PostListResponseDto;
 import com.ebcho.homecook.web.dto.RecipeListResponseDto;
+import com.ebcho.homecook.web.dto.RecipeResponseDto;
+import com.ebcho.homecook.web.dto.RecipeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -15,8 +19,19 @@ public class RecipeService {
 
     private final RecipeRepository recipeRepository;
     public List<RecipeListResponseDto> findAllDesc() {
-        return recipeRepository.findAllDesc().stream()
+        return recipeRepository.findAll(Sort.by(Sort.Direction.DESC,"id"))
+                .stream()
                 .map(RecipeListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    public RecipeResponseDto findById(Long id) {
+        Recipe entity = recipeRepository.findById(id).orElseThrow();
+        return new RecipeResponseDto(entity);
+    }
+
+    public Long save(RecipeSaveRequestDto requestDto) {
+
+        return null;
     }
 }

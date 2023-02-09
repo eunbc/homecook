@@ -10,6 +10,4 @@ import java.util.List;
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
-    @Query("SELECT p FROM Recipe p ORDER BY p.id DESC")
-    List<Recipe> findAllDesc();
 }

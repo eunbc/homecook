@@ -5,15 +5,24 @@ import com.ebcho.homecook.domain.recipe.Recipe;
 import lombok.Getter;
 
 
-//@Getter
+@Getter
 public class RecipeSaveRequestDto {
-    private Long id;
     private String title;
     private String author;
     private Long portion;
     private Long cookingTime;
     private String ingredients;
     private String content;
-    private Long hits;
+
+    public Recipe toEntity() {
+        return Recipe.builder()
+                .title(title)
+                .author(author)
+                .portion(portion)
+                .cookingTime(cookingTime)
+                .ingredients(ingredients)
+                .content(content)
+                .build();
+    }
 
 }

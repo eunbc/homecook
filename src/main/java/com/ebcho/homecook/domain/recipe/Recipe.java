@@ -25,6 +25,15 @@ public class Recipe {
     private String content;
     private Long hits; //조회수
     //todo : 대표 사진
+    @Builder
+    public Recipe(String title, String author, Long portion, Long cookingTime, String ingredients, String content) {
+        this.title = title;
+        this.author = author;
+        this.portion = portion;
+        this.cookingTime = cookingTime;
+        this.ingredients = ingredients;
+        this.content = content;
+    }
 
 
 }

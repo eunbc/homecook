@@ -31,7 +31,6 @@ public class RecipeService {
     }
 
     public Long save(RecipeSaveRequestDto requestDto) {
-
-        return null;
+        return recipeRepository.save(requestDto.toEntity()).getId();
     }
 }

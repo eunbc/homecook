@@ -5,6 +5,7 @@ import com.ebcho.homecook.domain.recipe.RecipeRepository;
 import com.ebcho.homecook.web.dto.RecipeListResponseDto;
 import com.ebcho.homecook.web.dto.RecipeResponseDto;
 import com.ebcho.homecook.web.dto.RecipeSaveRequestDto;
+import com.ebcho.homecook.web.dto.RecipeUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,14 @@ public class RecipeService {
     public Long save(RecipeSaveRequestDto requestDto) {
         return recipeRepository.save(requestDto.toEntity()).getId();
     }
+
+    public Long update(Long id,RecipeUpdateRequestDto requestDto) {
+        Recipe entity = recipeRepository.findById(id).orElseThrow();
+        entity.update(requestDto);
+        return entity.getId();
+    }
+
+//    public Long delete(Long id) {
+//        return recipeRepository.;
+//    }
 }

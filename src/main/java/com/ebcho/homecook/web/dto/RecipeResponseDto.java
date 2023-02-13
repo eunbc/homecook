@@ -1,7 +1,6 @@
 package com.ebcho.homecook.web.dto;
 
 import com.ebcho.homecook.domain.recipe.Recipe;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 

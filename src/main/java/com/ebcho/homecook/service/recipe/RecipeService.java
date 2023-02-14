@@ -9,6 +9,7 @@ import com.ebcho.homecook.web.dto.RecipeUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,13 +36,18 @@ public class RecipeService {
         return recipeRepository.save(requestDto.toEntity()).getId();
     }
 
+    @Transactional
     public Long update(Long id,RecipeUpdateRequestDto requestDto) {
         Recipe entity = recipeRepository.findById(id).orElseThrow();
         entity.update(requestDto);
         return entity.getId();
     }
 
-//    public Long delete(Long id) {
-//        return recipeRepository.;
-//    }
+
+    @Transactional
+    public Long delete(Long id) {
+        Recipe entity = recipeRepository.findById(id).orElseThrow();
+        entity.delete();
+        return entity.getId();
+    }
 }

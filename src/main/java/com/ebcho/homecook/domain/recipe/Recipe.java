@@ -44,4 +44,8 @@ public class Recipe {
         this.ingredients = requestDto.getIngredients();
         this.content = requestDto.getContent();
     }
+
+    public void delete() {
+        this.isDeleted = Boolean.TRUE;
+    }
 }

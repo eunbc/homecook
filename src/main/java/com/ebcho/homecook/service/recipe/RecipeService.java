@@ -21,7 +21,7 @@ public class RecipeService {
 
     private final RecipeRepository recipeRepository;
     public List<RecipeListResponseDto> findAllDesc() {
-        return recipeRepository.findAll(Sort.by(Sort.Direction.DESC,"id"))
+        return recipeRepository.findByIsDeletedFalseOrderByIdDesc()
                 .stream()
                 .map(RecipeListResponseDto::new)
                 .collect(Collectors.toList());

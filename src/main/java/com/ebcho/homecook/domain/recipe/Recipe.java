@@ -24,7 +24,7 @@ public class Recipe {
     private Long cookingTime; //소요시간
     private String ingredients; //재료
     private String content;
-    private Long hits; //조회수
+    private Long hits = 0L; //조회수
     private Boolean isDeleted = Boolean.FALSE;
     //todo : 대표 사진
     @Builder

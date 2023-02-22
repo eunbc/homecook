@@ -5,8 +5,16 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="/recipe/save" role="button" class="btn btn-primary">레시피 등록</a>
+                {{#memberName}}
+                    Logged in as : <span id = "member">{{memberName}}</span>
+                    <a href="/logout" role="button" class="btn btn-secondary active">로그아웃</a>
+                {{/memberName}}
+                {{^memberName}}
+                    <a href="/oauth2/authorization/google" role="button" class="btn btn-danger active">로그인</a>
+                {{/memberName}}
             </div>
         </div>
+
         <br>
         <!-- 목록 출력 영역 -->
         <table class="table table-horizontal table-bordered">
